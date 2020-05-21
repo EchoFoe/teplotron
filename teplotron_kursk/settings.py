@@ -135,9 +135,9 @@ EMAIL_HOST_PASSWORD = "12"
 EMAIL_USE_TLS = True
 
 FROM_EMAIL = "12"
-EMAIL_ADMIN = "12"
+EMAIL_ADMIN = ""
 
-try:
-    from .settings_prod import *
-except:
-    pass
+# try:
+#     from .settings_prod import *
+# except:
+#     pass

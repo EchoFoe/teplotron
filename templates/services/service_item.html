@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="col-xl-3 col-lg-3 col-md-6">
+    <div class="single-service-cap mb-30">
+        <div class="service-img">
+        <a href="{{ s.get_absolute_url }}">
+            <img src="{% if s.image %}{{ s.image.url }}{% else %}
+{% static "working/img/team/no_image_available.jpg" %}{% endif %}" alt="">
+        </a>
+        </div>
+        <div class="service-cap">
+            <h4><a href="{{ s.get_absolute_url }}">{{ s.name }}</a></h4>
+            <a href="{{ s.get_absolute_url }}" class="more-btn">Подробнее <i class="ti-plus"></i></a>
+        </div>
+        <div class="service-icon">
+            <img src="{% static 'working/img/icon/services_icon1.png' %}" alt="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}О компании{% endblock %}
+
+{% block content %}
+    <main>
+
+        <!-- About Area Start -->
+        <section class="support-company-area fix pb-75 pt-175">
+            <div class="support-wrapper align-items-end">
+                {% for a in about_us %}
+                    <div class="left-content">
+                        <!-- section tittle -->
+                        <div class="section-tittle section-tittle2 mb-55">
+                            <span class="back-text">О нас</span>
+                        </div>
+                        <div class="support-caption">
+                            <p class="pera-top">{{ a.name }}</p>
+                            <p>{{ a.tittle }}</p>
+                            <p>{{ a.description }}</p>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <!-- img -->
+                        <div class="right-img">
+                            <img src="{% if a.image %}{{ a.image.url }}{% else %}
+    {% static "working/img/team/no_image_available.jpg" %}{% endif %}" alt="">
+                        </div>
+                        <div class="support-img-cap text-center">
+                            <span>2018</span>
+                            <p>Начало</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!-- About Area End -->
+
+        <!-- Testimonial Start -->
+        <div class="testimonial-area t-bg testimonial-padding">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle section-tittle6 mb-50">
+                            <div class="front-text">
+                                <h2 class="">Отзывы</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="row">
+                    <div class="col-xl-10 col-lg-11 col-md-10 offset-xl-1">
+                        <div class="h1-testimonial-active">
+                            {% for c in comments %}
+                                <!-- Single Testimonial -->
+                                <div class="single-testimonial">
+                                     <!-- Testimonial Content -->
+                                    <div class="testimonial-caption ">
+                                        <div class="testimonial-top-cap">
+                                            <!-- SVG icon -->
+                                            <svg xmlns="http://www.w3.org/2000/svg"xmlns:xlink="http://www.w3.org/1999/xlink"width="86px" height="63px">
+                                            <path fill-rule="evenodd"  stroke-width="3px" stroke="rgb(224, 43, 56)" fill-opacity="0" fill="rgb(0, 0, 0)"
+                                            d="M82.623,59.861 L48.661,59.861 L48.661,25.988 L59.982,3.406 L76.963,3.406 L65.642,25.988 L82.623,25.988 L82.623,59.861 ZM3.377,25.988 L14.698,3.406 L31.679,3.406 L20.358,25.988 L37.340,25.988 L37.340,59.861 L3.377,59.861 L3.377,25.988 Z"></path>
+                                            </svg>
+                                            <p>{{ c.message }}</p>
+                                        </div>
+                                        <!-- founder -->
+                                        <div class="testimonial-founder d-flex align-items-center">
+                                            <div class="founder-text">
+                                                <span>{{ c.first_name }} {{ c.last_name }}</span>
+                                                <p>{{ c.created|date:"F j, Y" }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        <!-- Team Start -->
+        <div class="team-area section-padding30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle section-tittle5 mb-50">
+                            <div class="front-text">
+                                <h2 class="">Основа нашей команды</h2>
+                            </div>
+                            <span class="back-text">Профессионалы</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for e in experts %}
+                    <!-- single Tem -->
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="{% if e.image %}{{ e.image.url }}{% else %}{% static 'working/img/team/no_image_available.jpg' %}{% endif %}" alt="">
+                            </div>
+                            <div class="team-caption">
+                                <span>{{ e.office }}</span>
+                                <h3>{{ e.first_name }} {{ e.last_name }}</h3>
+                                <p>{{ e.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+    </main>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% load static %}
+
+{% if news %}
+    <div class="single-mynews">
+        <div class="mynews-caption ">
+            <div class="mynews-top-cap">
+{#                <a href="{{ n.get_absolute_url }}" class="btn red-btn2">{{ n.tittle }}</a>#}
+                <p class="text-center">{{ n.name|truncatechars:70 }}</p>
+            </div>
+        </div>
+    </div>
+{% else %}
+<div class="single-mynews">
+    <div class="mynews-caption ">
+        <div class="mynews-top-cap">
+            <p>Новостей пока нет, но скоро будут! Следите за ними на нашем сайте!</p>
+        </div>
+    </div>
+</div>
+{% endif %}

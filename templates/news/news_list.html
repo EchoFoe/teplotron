@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Теплотрон | Портфолио{% endblock %}
+
+{% block content %}
+
+<main>
+
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="{% static 'working/img/hero/about.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap pt-100">
+                            <nav aria-label="breadcrumb ">
+                                <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Домашняя</a></li>
+                                <li class="breadcrumb-item"><a> Новости</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+
+    <!--================Blog Area =================-->
+    <section class="blog_area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                        {% for n in news %}
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <a href="{{ n.get_absolute_url }}">
+                                        <img class="card-img rounded-0" src="{% if n.image %}{{ n.image.url }}{% else %}{% static 'working/img/team/no_image_available.jpg' %}{% endif %}" alt="">
+                                    </a>
+                                </div>
+                                <div class="blog_details">
+                                    <ul class="blog-info-link">
+                                        <li><a><i class="fa fa-calendar"></i> {{ n.created|date:'F j Y' }}</a></li>
+                                    </ul>
+                                    <hr>
+                                    <a class="d-inline-block" href="{{ n.get_absolute_url }}">
+                                        <h2>{{ n.name }}</h2>
+                                    </a>
+                                    <p>{{ n.description|truncatechars:350 }}</p>
+                                    <a href="{{ n.get_absolute_url }}"><button class="button rounded-0 primary-bg text-white btn_1 boxed-btn" >Читать полностью</button></a>
+                                    <hr>
+                                </div>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget popular_post_widget">
+                            <h3 class="widget_title">Все новости:</h3>
+                                {% for n in news %}
+                                    <div class="media post_item">
+                                        <div class="media-body">
+                                            <a href="{{ n.get_absolute_url }}">
+                                                <h3>{{ n.name|truncatechars:55 }}</h3>
+                                            </a>
+                                            <p>{{ n.created|date:'F j, Y' }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area =================-->
+
+</main>
+{% endblock %}

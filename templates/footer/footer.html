@@ -1,0 +1,89 @@
+{% load static %}
+
+<footer>
+    <!-- Footer_teplotron -->
+    <div class="footer-main">
+            <div class="footer-area footer-padding">
+                <div class="container">
+                    <div class="row  justify-content-between">
+                        <div class="col-lg-4 col-md-4 col-sm-8">
+                            <div class="single-footer-caption mb-30">
+                                <!-- logo -->
+                                <div class="footer-logo">
+{#                                    <a href="index.html"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>#}
+                                    <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Общество с ограниченной отвественностью</p>
+                                    </div>
+                                </div>
+                                    <h3>"ТЕПЛОТРОН"</h3>
+                                </div>
+                                <div class="footer-tittle">
+                                    <div class="footer-pera">
+                                        <p class="info1">Наша команда сможет Вам предложить индивидуальный подход при комплексном решении задач теплоснабжения и энергосбережения, включая проектирование, автоматизацию ТП, строительство котельных установок и сервисное обслуживание объектов энергетики.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-sm-5">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Ссылки:</h4>
+                                    <ul>
+                                        {% for s in services %}
+                                            <li><a href="{{ s.get_absolute_url }}">{{ s.name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-7">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>Контакты:</h4>
+                                    {% for a in about_us %}
+                                        <div class="footer-pera">
+                                            <p class="info1">{{ a.address }}</p>
+                                        </div>
+                                        <ul>
+                                            <li><a>Тел.: {{ a.phone }}</a></li>
+                                            <li><a>Почта: {{ a.email }}</a></li>
+                                        </ul>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <!-- Form -->
+                                <div class="footer-form">
+                                    <div id="mc_embed_signup">
+                                        <form target="_blank" action="{% url 'home:home' %}" method="post" class="subscribe_form relative mail_part">{% csrf_token %}
+                                            <input required type="email" name="{{ form.email.name }}" id="newsletter-form-email" value="{{ request.POST.name }}" placeholder=" Ваша почта " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Ваша почта '">
+                                            <div class="form-icon">
+                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
+                                                    Подписаться
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Map -->
+                                <div class="map-footer">
+                                    <img src="{% static 'working/img/gallery/map-footer2.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Copy-Right -->
+                    <div class="row align-items-center">
+                        <div class="col-xl-12 ">
+                            <div class="footer-copy-right">
+                                <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены | Разработано с <i class="fa fa-heart" aria-hidden="true"></i>  <a href="#" target="_blank">Echo</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</footer>

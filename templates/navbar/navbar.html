@@ -1,0 +1,83 @@
+{% load static %}
+
+<header>
+
+    <!-- Navbar_teplotron -->
+   <div class="header-area header-transparent">
+        <div class="main-header ">
+            <div class="header-top d-none d-lg-block">
+               <div class="container-fluid">
+                   <div class="col-xl-12">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="header-info-left">
+                                <a href="{% url 'home:home' %}" class="big-logo"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>
+                            </div>
+                            <div class="header-info-left">
+                                {% for a in about_us %}
+                                    <ul>
+                                        <li>{{ a.phone }}</li>
+                                        <li>{{ a.email }}</li>
+                                        <li>Пн - Сб: {{ a.schedule_start|time:'H:i' }} - {{ a.schedule_end|time:'H:i' }}, Вс - ЗАКРЫТО</li>
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                            <div class="header-info-right">
+                                <ul class="header-social">
+                                    <li><a href="#"><i class="fab fa-vk"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+            </div>
+           <div class="header-bottom  header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <!-- logo-1 -->
+{#                                <a href="{% url 'home:home' %}" class="big-logo"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>#}
+                                <!-- logo-2 -->
+                                <a href="{% url 'home:home' %}" class="small-logo"><img src="{% static 'working/img/logo/mini_logo.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        {% if user.is_superuser %}
+                                            <li><a href="/admin/">Программа</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'home:home' %}">Домашняя</a></li>
+                                        <li><a href="{% url 'home:home' %}">Услуги</a>
+                                            <ul class="submenu">
+                                                {% for s in services %}
+                                                    <li><a href="{{ s.get_absolute_url }}">{{ s.name }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'portfolio:portfolio_list' %}">Объекты</a></li>
+                                        <li><a href="{% url 'news:news_list' %}">Новости</a>
+                                        <li><a href="{% url 'about_us:contact' %}">Контакты</a></li>
+                                        <li><a href="{% url 'about_us:about_us' %}">О компании</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3">
+                            <div class="header-right-btn f-right d-none d-lg-block">
+                                <a href="{% url 'about_us:contact' %}" class="btn">Обратная связь</a>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+   </div>
+</header>

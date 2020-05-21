@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Теплотрон | Контакты{% endblock %}
+
+{% block content %}
+
+    <!-- ================ contact section start ================= -->
+    <section class="contact-section mt-155">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-title">Воспользуйтесь формой ниже для того, чтобы задать нам вопрос, и мы с радостью на него ответим!</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <form class="form-contact" action="{% url 'about_us:contact' %}" method="post">{% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="{{ form.first_name.name }}" value="{{ request.POST.name }}" id="first_name" required type="text" onfocus="this.placeholder = 'Это поле обязательно для заполнения'" onblur="this.placeholder = 'Введите Ваше имя'" placeholder="Введите Ваше имя *">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="{{ form.last_name.name }}" value="{{ request.POST.name }}" id="last_name" required type="text" onfocus="this.placeholder = 'Это поле обязательно для заполнения'" onblur="this.placeholder = 'Введите Вашу фамилию'" placeholder="Введите Вашу фамилию *">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="{{ form.email.name }}" value="{{ request.POST.name }}"  id="email" required type="email" onfocus="this.placeholder = 'Это поле обязательно для заполнения'" onblur="this.placeholder = 'Ваш e-mail'" placeholder="Ваш e-mail *">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="{{ form.phone.name }}" value="{{ request.POST.name }}"  id="phone" required type="number" onfocus="this.placeholder = 'Это поле обязательно для заполнения'" onblur="this.placeholder = 'Номер телефона'" placeholder="Номер телефона">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control w-100" name="{{ form.message.name }}" id="message" cols="30" rows="9" required type="text" onfocus="this.placeholder = 'Это поле обязательно для заполнения'" onblur="this.placeholder = 'Введите текст Вашего обращения к нам'" placeholder=" Введите текст Вашего обращения к нам *"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="submit" value="OK" name="form" class="button button-contactForm boxed-btn">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        {% for a in about_us %}
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-home"></i></span>
+                            <div class="media-body">
+                                <h3>{{ a.address }}</h3>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <div class="media-body">
+                                <h3>{{ a.phone }}</h3>
+                                <p>c {{ a.schedule_start|time:"H:i" }} по {{ a.schedule_end|date:"H:i" }}</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+                                <h3>{{ a.email }}</h3>
+                                <p>Отправляйте нам письма в любое время!</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="d-none d-sm-block mb-5 pb-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4157.180419696624!2d36.165944233237646!3d51.71704280006207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412f0312ad92bd7d%3A0x7cf67f4508df6c27!2z0YPQuy4g0JrRgNCw0YHQvdC-0Lkg0JDRgNC80LjQuCwgMTAwLCDQmtGD0YDRgdC6LCDQmtGD0YDRgdC60LDRjyDQvtCx0LsuLCAzMDUwMzU!5e0!3m2!1sru!2sru!4v1588892351024!5m2!1sru!2sru" width="1170" height="480" frameborder="0" style="border:1px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </section>
+    <!-- ================ contact section end ================= -->
+
+{% endblock %}

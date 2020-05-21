@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ portfolio.name|truncatechars:30 }}{% endblock %}
+
+{% block content %}
+<main>
+<!-- slider Area Start-->
+<div class="slider-area ">
+    <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="{{ portfolio.image.url }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap pt-100">
+{#                        <h2>{% if portfolio %}{{ portfolio.name }}{% else %}Галлерея{% endif %}</h2>#}
+                        <nav aria-label="breadcrumb ">
+                            <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Домой</a></li>
+                            <li class="breadcrumb-item"><a>{{ portfolio.name }}</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider Area End-->
+
+<!-- Project Area Start -->
+    <section class="project-area  pt-55">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Nav Card -->
+                    <div class="tab-content active" id="nav-tabContent">
+                        <!-- card ONE -->
+                        <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="project-caption">
+                                <div class="row">
+                                    {% for p in portfolio.portfoliodetails_set.all %}
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="single-project mb-30">
+                                                <div class="project-img">
+                                                    <img src="{{ p.image.url }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- End Nav Card -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Project Area End -->
+
+    <!-- Services Details Start -->
+    <div class="services-details-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="single-services mb-55">
+                        <div class="details-caption">
+                            {% if portfolio.description %}
+                                <p>{{ portfolio.description }}</p>
+                            {% endif %}
+                            <h3>Остались вопросы?</h3>
+                            <p>Позвоните нам или свяжитесь с нами по почте. Мы всегда рады Вам! Наши специалисты предлагают Вам сотрудничество по оказанию услуг в сфере обслуживания, проектирования, монтажа, строительства блок-модульных котельных под ключ, строительства инженерных сетей, наружных и внутренних газопроводов, пуско-наладочных работ теплотехнического и газоиспользующего оборудования, ремонт и замена устаревшего оборудования котельных, ЦТП, инженерных сетей.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services Details End -->
+</main>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Теплотрон | Портфолио{% endblock %}
+
+{% block content %}
+
+<main>
+
+<section class="blog_area single-post-area section-padding mt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="blog_details">
+                        <h2></h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a><i class="fa fa-calendar"></i> {{ new.created|date:'F j, Y' }}</a></li>
+                        </ul>
+                        <div class="quote-wrapper">
+                            <div class="quotes">{{ new.tittle }}</div>
+                        </div>
+                        <p class="excert">{{ new.description }}</p>
+                    </div>
+                </div>
+            </div>
+        <div class="col-lg-4">
+            <div class="blog_right_sidebar">
+                <aside class="single_sidebar_widget popular_post_widget">
+                    <h3 class="widget_title">Все новости:</h3>
+                    {% for n in news %}
+                        <div class="media post_item">
+                            <div class="media-body">
+                               <a href="{{ n.get_absolute_url }}">
+                                  <h3>{{ n.name|truncatechars:55 }}</h3>
+                               </a>
+                               <p>{{ n.created|date:'F j, Y' }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </aside>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+</main>
+{% endblock %}

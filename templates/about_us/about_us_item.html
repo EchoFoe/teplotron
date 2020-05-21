@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="left-content">
+    <!-- section tittle -->
+    <div class="section-tittle section-tittle2 mb-55">
+        <div class="front-text">
+            <h2 class="">О компании:</h2>
+        </div>
+        <span class="back-text">О нас</span>
+    </div>
+    <div class="support-caption">
+        <p class="pera-top">{{ a.tittle }}</p>
+        <p>{{ a.description|truncatechars:500 }}</p>
+        <a href="{% url 'about_us:about_us' %}" class="btn red-btn2">Читать далее</a>
+    </div>
+</div>
+<div class="right-content">
+    <!-- img -->
+    <div class="right-img">
+        <img src="{% if a.image %}{{ a.image.url }}{% else %}
+{% static "working/img/team/no_image_available.jpg" %}{% endif %}" alt="">
+    </div>
+    <div class="support-img-cap text-center">
+        <span>2018</span>
+        <p>Начало</p>
+    </div>
+</div>

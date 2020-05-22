@@ -2615,11 +2615,11 @@ to {
 }
 @media (max-width: 575px) {
     .support-company-area .support-wrapper .left-content .support-caption {
-    padding-right: 0px;
+    padding-right: 10px;
 }
 }@media only screen and (min-width: 576px) and (max-width: 767px) {
     .support-company-area .support-wrapper .left-content .support-caption {
-    padding-right: 0px;
+    padding-right: 10px;
 }
 }@media only screen and (min-width: 992px) and (max-width: 1200px) {
     .support-company-area .support-wrapper .left-content .support-caption {

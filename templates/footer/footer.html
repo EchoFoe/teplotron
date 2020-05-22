@@ -10,17 +10,19 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo">
-{#                                    <a href="index.html"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>#}
+{#                                    <a href="index.html"><img src="{% static 'working/img/logo/main_logo_clear1.png' %}" alt=""></a>#}
                                     <div class="footer-tittle">
-                                    <div class="footer-pera">
-                                        <p class="info1">Общество с ограниченной отвественностью</p>
+                                        <div class="footer-pera">
+                                            <p class="info1">Общество с ограниченной отвественностью</p>
+                                        </div>
+                                        <h4>"ТЕПЛОТРОН"</h4>
                                     </div>
-                                </div>
-                                    <h3>"ТЕПЛОТРОН"</h3>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p class="info1">Наша команда сможет Вам предложить индивидуальный подход при комплексном решении задач теплоснабжения и энергосбережения, включая проектирование, автоматизацию ТП, строительство котельных установок и сервисное обслуживание объектов энергетики.</p>
+                                        {% for a in about_us %}
+                                            <p class="info1">{{ a.tittle }}</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>

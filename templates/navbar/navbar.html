@@ -7,49 +7,44 @@
         <div class="main-header ">
             <div class="header-top d-none d-lg-block">
                <div class="container-fluid">
-                   <div class="col-xl-12">
+{#                   <div class="col-xl-12">#}
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left">
-                                <a href="{% url 'home:home' %}" class="big-logo"><img src="{% static 'working/img/logo/main_logo_clear1.png' %}" alt=""></a>
+                                <a href="{% url 'home:home' %}" class="big-logo"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>
                             </div>
-                            <div class="header-info-left">
+{#                            <div class="header-info-left">#}
+{#                                {% for a in about_us %}#}
+{#                                    <ul>#}
+{#                                        <li>{{ a.phone }}</li>#}
+{#                                        <li>{{ a.email }}</li>#}
+{#                                        <li>Пн - Сб: {{ a.schedule_start|time:'H:i' }} - {{ a.schedule_end|time:'H:i' }}, Вс - ЗАКРЫТО</li>#}
+{#                                    </ul>#}
+{#                                {% endfor %}#}
+{#                            </div>#}
+                            <div class="header-info-right">
                                 {% for a in about_us %}
-                                    <ul>
+                                    <ul class="text-right">
                                         <li>{{ a.phone }}</li>
                                         <li>{{ a.email }}</li>
                                         <li>Пн - Сб: {{ a.schedule_start|time:'H:i' }} - {{ a.schedule_end|time:'H:i' }}, Вс - ЗАКРЫТО</li>
                                     </ul>
                                 {% endfor %}
                             </div>
-                            <div class="header-info-right">
-                                <ul class="header-social">
-                                    <li><a href="#"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
                         </div>
-                   </div>
+{#                   </div>#}
                </div>
             </div>
            <div class="header-bottom  header-sticky">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <!-- Logo -->
-                        <div class="col-xl-2 col-lg-2 col-md-1">
-                            <div class="logo">
-                                <!-- logo-1 -->
-{#                                <a href="{% url 'home:home' %}" class="big-logo"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>#}
-                                <!-- logo-2 -->
-                                <a href="{% url 'home:home' %}" class="small-logo"><img src="{% static 'working/img/logo/mini_logo.png' %}" alt=""></a>
-                            </div>
-                        </div>
                         <div class="col-xl-8 col-lg-8 col-md-8">
                             <!-- Main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
+                            <div class="main-menu f-left d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        {% if user.is_superuser %}
-                                            <li><a href="/admin/">Программа</a></li>
-                                        {% endif %}
+{#                                        {% if user.is_superuser %}#}
+{#                                            <li><a href="/admin/">Программа</a></li>#}
+{#                                        {% endif %}#}
                                         <li><a href="{% url 'home:home' %}">Домашняя</a></li>
                                         <li><a>Услуги</a>
                                             <ul class="submenu">
@@ -66,11 +61,21 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2 col-md-3">
-                            <div class="header-right-btn f-right d-none d-lg-block">
-                                <a href="{% url 'about_us:contact' %}" class="btn">Обратная связь</a>
+                        <!-- Logo -->
+                        <div class="col-xl-1 col-lg-2 col-md-1">
+                            <div class="logo">
+                                <!-- logo-1 -->
+{#                                <a href="{% url 'home:home' %}" class="big-logo"><img src="{% static 'working/img/logo/main_logo.png' %}" alt=""></a>#}
+                                <!-- logo-2 -->
+                                <a href="{% url 'home:home' %}" class="small-logo"><img src="{% static 'working/img/logo/mini_logo.png' %}" alt=""></a>
                             </div>
                         </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3">
+                            <div class="header-right-btn f-right d-none d-lg-block">
+                                <a href="/admin/" class="btn">Обратная связь</a>
+                            </div>
+                        </div>
+
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

@@ -131,7 +131,7 @@
       });
     }
 
-    /* 4.1 MyNews Active*/
+/* 4.1 MyNews Active*/
   var mynews = $('.h1-mynews-active');
     if(mynews.length){
     mynews.slick({
@@ -175,6 +175,50 @@
       });
     }
 
+/* 4.2 MyServices Active*/
+  var myservices = $('.h1-myservices-active');
+    if(myservices.length){
+    myservices.slick({
+        dots: false,
+        infinite: true,
+        speed: 1000,
+        autoplay:true,
+        autoplaySpeed: 1500,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: false,
+              arrow:false
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows:false
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows:false,
+            }
+          }
+        ]
+      });
+    }
 
 /* 5. Gallery Active */
     var client_list = $('.gallery-active');

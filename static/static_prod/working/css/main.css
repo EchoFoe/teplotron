@@ -565,6 +565,9 @@ hr {
 .mt-200 {
     margin-top: 200px;
 }
+.mt-250 {
+    margin-top: 250px;
+}
 .mb-5 {
     margin-bottom: 5px;
 }
@@ -2743,14 +2746,14 @@ to {
     left: -120px;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .h1-testimonial-active: hover button.slick-prev {
+    .h1-testimonial-active:hover button.slick-prev {
     left: -35px;
 }
 }.h1-testimonial-active:hover button.slick-next {
     right: -120px;
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-    .h1-testimonial-active: hover button.slick-next {
+    .h1-testimonial-active:hover button.slick-next {
     right: -37px;
 }
 }.h1-testimonial-active:hover button {

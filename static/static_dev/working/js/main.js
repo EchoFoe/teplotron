@@ -205,6 +205,7 @@
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
+              autoplaySpeed: 3000,
               arrows:false
             }
           },
@@ -213,6 +214,7 @@
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
+              autoplaySpeed: 3000,
               arrows:false,
             }
           }

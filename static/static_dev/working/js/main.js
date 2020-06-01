@@ -183,7 +183,7 @@
         infinite: true,
         speed: 1000,
         autoplay:true,
-        autoplaySpeed: 1500,
+        autoplaySpeed: 3000,
         arrows: true,
         prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',

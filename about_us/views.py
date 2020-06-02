@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from .models import AboutUs, AboutUsDetails, Customer
+from documentations.models import Document
 from reviews.models import Comment
 from services.models import Service
 from experts.models import Expert
@@ -14,11 +15,13 @@ def about(request):
     comments = Comment.objects.filter(available=True)
     reviews = Service.objects.filter(available=True)
     experts = Expert.objects.filter(available=True)
+    documents = Document.objects.filter(available=True)
     return render(request, 'about_us/about_us.html', {'about_us': about_us,
                                                       'comments': comments,
                                                       'reviews': reviews,
                                                       'services': services,
                                                       'experts': experts,
+                                                      'documents': documents,
                                                       })
 
 
@@ -37,6 +40,7 @@ def about_footer(request):
 def contact(request):
     services = Service.objects.filter(available=True)
     about_us = AboutUs.objects.filter(available=True)
+    documents = Document.objects.filter(available=True)
     form = CustomerForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         print(request.POST)

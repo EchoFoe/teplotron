@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'portfolio.apps.PortfolioConfig',
     'utils',
     'emails.apps.EmailsConfig',
+    'documentations.apps.DocumentationsConfig',
 ]
 
 MIDDLEWARE = [

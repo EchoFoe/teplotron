@@ -10,6 +10,7 @@ urlpatterns = [
     path('news/', include('news.urls', namespace='news')),
     path('about_us/', include('about_us.urls', namespace='about_us')),
     path('portfolio/', include('portfolio.urls', namespace='portfolio')),
+    path('summernote/', include('django_summernote.urls')),
     # path('', include('about_us.urls', namespace='about_us')),
 ]\
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \

@@ -7,7 +7,7 @@ from .models import Service
 class ServiceAdmin(SummernoteModelAdmin):
     save_as = True
     fields = [('name', 'slug'), 'position', 'tittle', 'description', 'image', 'available', ('created', 'updated')]
-    summernote_fields = ('description', 'tittle')
+    summernote_fields = ('description',)
     list_display = ['position', 'name', 'available']
     list_filter = ['available', 'created', 'updated']
     list_editable = ['available']

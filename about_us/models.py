@@ -8,7 +8,7 @@ class AboutUs(models.Model):
     name = models.CharField(blank=True, null=True, default=None, max_length=200, verbose_name='Название компании')
     tittle = models.TextField(max_length=512, blank=True, verbose_name='Заголовок "О компании"')
     image = models.ImageField(upload_to='about_us/%Y/%m/%d', blank=True, verbose_name='Фото')
-    description = models.TextField(max_length=2056, blank=True, verbose_name='Описание компании')
+    description = models.TextField(max_length=10000, blank=True, verbose_name='Описание компании')
     address = models.CharField(max_length=1024, blank=True, null=True, verbose_name='Адрес')
     email = models.EmailField(max_length=128, blank=True, null=True, default=None, verbose_name='Емейл')
     phone = models.CharField(max_length=128, blank=True, null=True, default=None, verbose_name='Номер тел.')

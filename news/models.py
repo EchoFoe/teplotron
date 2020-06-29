@@ -9,7 +9,7 @@ class New(models.Model):
     slug = models.SlugField(max_length=200, db_index=True, verbose_name='Слаг')
     image = models.ImageField(upload_to='news/%Y/%m/%d', blank=True, verbose_name='Фото')
     tittle = models.TextField(max_length=512, verbose_name='Краткое описание к новости')
-    description = models.TextField(max_length=2056, blank=True, verbose_name='Текст новости')
+    description = models.TextField(max_length=10000, blank=True, verbose_name='Текст новости')
     available = models.BooleanField(default=False, verbose_name='Актуальность')
     created = models.DateField(blank=True, null=True, default=timezone.now, verbose_name='Дата создания записи')
     updated = models.DateField(blank=True, null=True, default=timezone.now, verbose_name='Дата ред-ия записи')

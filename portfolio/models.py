@@ -10,7 +10,7 @@ class Portfolio(models.Model):
     image = models.ImageField(upload_to='portfolio_avatar/%Y/%m/%d', blank=True, verbose_name='Аватар объекта')
     # tittle = models.TextField(max_length=512, blank=True, verbose_name='Заголовок')
     # position = models.IntegerField(default=None, blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(20)], verbose_name='Позиция')
-    description = models.TextField(max_length=2056, blank=True, verbose_name='Описание работ')
+    description = models.TextField(max_length=10000, blank=True, verbose_name='Описание работ')
     available = models.BooleanField(default=False, verbose_name='Актуальность')
     created = models.DateField(blank=True, null=True, default=timezone.now, verbose_name='Дата создания записи')
     updated = models.DateField(blank=True, null=True, default=timezone.now, verbose_name='Дата ред-ия записи')

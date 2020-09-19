@@ -3312,6 +3312,17 @@ to {
 }.mynews-area .mynews-caption .mynews-top-cap svg {
     margin-bottom: 17px;
 }
+.single-mynews .mynews-caption .mynews-top-cap a {
+    color: #1f1f21;
+}
+.mynews .mynews-caption .mynews-top-cap p {
+    color: #a4acc3;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 0 3px;
+    margin-bottom: 50px;
+    font-size: 16px;
+}
 .mynews .mynews-caption .mynews-top-cap p {
     color: #a4acc3;
     font-weight: 500;
